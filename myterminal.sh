@@ -61,10 +61,6 @@ push() {
 #bind '"\e[24~": "\e[1~ of \e[4~\n"'
 
 #a func to make a dir and get in
-mkdirin() {
-    mkdir $1
-    cd $1
-}
 
 #add .gitignore anywhere
 add-gitignore() {
@@ -84,3 +80,4 @@ alias update='sudo apt update'
 alias UP='update && upgrade' #shortening the name
 alias git-init='git init && add-gitignore' #init the dir as well as add gitignore
 alias la='ls -a'
+alias mkdirin='mkdir $x && cd $x'
