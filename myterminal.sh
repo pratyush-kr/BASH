@@ -17,7 +17,7 @@ export COLOR_LIGHT_CYAN='\e[1;36m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
-#KALI TYPE TERMINAL PS1
+#KALI TYPE PS1
 if [ $USER == "root" ];
 then
     echo "you are root be cautious!!!"
@@ -50,17 +50,22 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # git push 
-push() {
+function push()
+{
+    local msg="$1"
     git add .
-    msg="$1 $2 $3 $4 $5 $6"
-    echo msg
-    git commit -m $msg
+    git commit -m "$msg"
     git push origin
 }
+
 #To Use this remove '#': write the function "of" before every command if the user presses F12
 #bind '"\e[24~": "\e[1~ of \e[4~\n"'
 
 #a func to make a dir and get in
+mkdirin() {
+    mkdir "$1"
+    cd "$1"
+}
 
 #add .gitignore anywhere
 add-gitignore() {
@@ -68,8 +73,6 @@ add-gitignore() {
 }
 
 #auto install any program
-
-
 
 #aliases
 #alias gedit='of gedit' #of = output filter
@@ -80,4 +83,4 @@ alias update='sudo apt update'
 alias UP='update && upgrade' #shortening the name
 alias git-init='git init && add-gitignore' #init the dir as well as add gitignore
 alias la='ls -a'
-alias mkdirin='mkdir $x && cd $x'
+alias clear='printf "\033c"'
