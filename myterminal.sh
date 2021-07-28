@@ -96,11 +96,12 @@ function setup-git() {
         read email
         git config --global user.name "$user"
         git config --global user.email "$email"
-        echo "Open: https://github.com/setting/ssh/new"
+        echo -e "$COLOR_GREEN Open: https://github.com/settings/ssh/new \e[0m"
+        echo -e "$COLOR_CYAN Generating ssh-key please only press enter-key for every querry \e[0m"
         ssh-keygen
-        echo "Copy the ssh key"
+        echo -e "$COLOR_RED Copy this ssh key \e[0m"
         cat ~/.ssh/id_rsa.pub
-        echo "paste these to the key in the above link"
+        echo -e "$COLOR_RED Paste these to the key area asked in the above link \e[0m"
     else
         echo "git not avilable"
         printf "install git now? (Y/n): "
