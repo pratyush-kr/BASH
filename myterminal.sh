@@ -85,14 +85,17 @@ alias la='ls -a'
 alias clear='printf "\033c"'
 
 #git-setup
-
 function setup-git() {
     var=`git --version`
     echo "$var"
-    if [[ "$var" == "git1 version"* ]];
+    if [[ "$var" == "git version"* ]];
     then
-        
-        echo "git is avilable"
+        printf "username: "
+        read user
+        printf "email: "
+        read email
+        git config --global user.name "$user"
+        git config --global user.email "$email"
     else
         echo "git not avilable"
         printf "install git now? (Y/n): "
