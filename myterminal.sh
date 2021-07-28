@@ -20,7 +20,7 @@ export COLOR_WHITE='\e[1;37m'
 #KALI TYPE PS1
 if [ $USER == "root" ];
 then
-    echo "you are root be cautious!!!"
+    echo "$COLOR_RED you are root be cautious!!! $COLOR_NC"
 	PS1="\[\e]0;\u@\h: \w\a\]\[\033[;94m\]┌──(\[\033[1;31m\]\u@\h\[\033[;94m\])-[\[\033[0;1m\]\w\[\033[;94m\]]\n\[\033[;94m\]└─\[\033[1;31m\]#\[\033[0m\] "
 else
 	PS1="\[\e]0;\u@\h: \w\a\]\[\033[;32m\]┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)\[\033[;32m\])}(\[\033[1;34m\]\u@\h\[\033[;32m\])\$(__git_ps1)-[\[\033[0;1m\]\w\[\033[;32m\]]\n\[\033[;32m\]└─\[\033[1;34m\]\$\[\033[0m\] "
@@ -96,12 +96,12 @@ function setup-git() {
         read email
         git config --global user.name "$user"
         git config --global user.email "$email"
-        echo -e "$COLOR_GREEN Open: https://github.com/settings/ssh/new \e[0m"
-        echo -e "$COLOR_CYAN Generating ssh-key please only press enter-key for every querry \e[0m"
+        echo -e "$COLOR_GREEN Open: https://github.com/settings/ssh/new $COLOR_NC"
+        echo -e "$COLOR_CYAN Generating ssh-key please only press enter-key for every querry $COLOR_NC"
         ssh-keygen
-        echo -e "$COLOR_RED Copy this ssh key \e[0m"
+        echo -e "$COLOR_RED Copy this ssh key $COLOR_NC"
         cat ~/.ssh/id_rsa.pub
-        echo -e "$COLOR_RED Paste these to the key area asked in the above link \e[0m"
+        echo -e "$COLOR_RED Paste these to the key area asked in the above link $COLOR_NC"
     else
         echo "git not avilable"
         printf "install git now? (Y/n): "
