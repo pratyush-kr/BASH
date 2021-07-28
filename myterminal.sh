@@ -50,8 +50,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # git push 
-function push()
-{
+push() {
     local msg="$1"
     git add .
     git commit -m "$msg"
@@ -68,7 +67,7 @@ mkdirin() {
 }
 
 #add .gitignore anywhere
-add-gitignore() {
+function add-gitignore() {
     cp ~/.gitignore .gitignore
 }
 
@@ -84,3 +83,26 @@ alias UP='update && upgrade' #shortening the name
 alias git-init='git init && add-gitignore' #init the dir as well as add gitignore
 alias la='ls -a'
 alias clear='printf "\033c"'
+
+#git-setup
+
+function setup-git() {
+    var=`git --version`
+    echo "$var"
+    if [[ "$var" == "git1 version"* ]];
+    then
+        
+        echo "git is avilable"
+    else
+        echo "git not avilable"
+        printf "install git now? (Y/n): "
+        var="y"
+        read var
+        if [ "$var" == "y" ] || [ "$var" == "Y" ];
+        then
+            sudo apt install git
+        else
+            echo "Quiting..."
+        fi
+    fi
+}
