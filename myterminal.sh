@@ -20,7 +20,7 @@ export COLOR_WHITE='\e[1;37m'
 #KALI TYPE PS1
 if [ $USER == "root" ];
 then
-    echo "$COLOR_RED you are root be cautious!!! $COLOR_NC"
+    echo "you are root be cautious!!!"
 	PS1="\[\e]0;\u@\h: \w\a\]\[\033[;94m\]┌──(\[\033[1;31m\]\u@\h\[\033[;94m\])-[\[\033[0;1m\]\w\[\033[;94m\]]\n\[\033[;94m\]└─\[\033[1;31m\]#\[\033[0m\] "
 else
 	PS1="\[\e]0;\u@\h: \w\a\]\[\033[;32m\]┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)\[\033[;32m\])}(\[\033[1;34m\]\u@\h\[\033[;32m\])\$(__git_ps1)-[\[\033[0;1m\]\w\[\033[;32m\]]\n\[\033[;32m\]└─\[\033[1;34m\]\$\[\033[0m\] "
